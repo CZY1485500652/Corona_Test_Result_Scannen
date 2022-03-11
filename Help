@@ -1,0 +1,44 @@
+________________________________________________________________________________________________________________________________________________________________________________
+With this two lines code you can check binary picture of result
+  Thresh_Value_Negatief(150)
+  Thresh_Value_Positief(180)
+________________________________________________________________________________________________________________________________________________________________________________
+
+
+________________________________________________________________________________________________________________________________________________________________________________
+You can check the result with those function (one of them SVM or KNN)
+  filename = input("Enter the name of file : ")
+  Test_Picture_Analyse(filename, xt, yt)
+  SVM(xn, yn, xp, yp, xt, yt, filename)
+  #KNN(xn, yn, xp, yp, xt, yt, filename, 1)
+ ________________________________________________________________________________________________________________________________________________________________________________
+ 
+ 
+_________________________________________________________________________________________________________________________________________________________________________________
+You can see the procent of scannen
+ print("==========================================================")
+  for x in range(1, 16):
+    result = 'Negatief'
+    filename = 'Test/' + 'Negatief/' + 'CTN-' + str(x) + '.jpg'
+    Test_Picture_Analyse(filename, xt, yt)
+    SVM(xn, yn, xp, yp, xt, yt, filename)
+    KNN(xn, yn, xp, yp, xt, yt, filename, 1)
+    xt.clear()
+    yt.clear()
+  print("==========================================================") 
+
+  for y in range(1, 16):
+    result = 'Positeif'
+    filename = 'Test/' + 'Positief/' + 'CTP-' + str(y) + '.jpg'
+    Test_Picture_Analyse(filename, xt, yt)
+    SVM(xn, yn, xp, yp, xt, yt, filename)
+    KNN(xn, yn, xp, yp, xt, yt, filename, 1)
+    xt.clear()
+    yt.clear()
+  print("==========================================================")
+  print()
+  print("SVM scored : " + str(int(SVM_R) / 30 * 100) + " % ")
+  print("KNN scored : " + str(int(KNN_R) / 30 * 100) + " % ")
+  
+  
+  
